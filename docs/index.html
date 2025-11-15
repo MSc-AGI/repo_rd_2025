@@ -11,6 +11,7 @@
             --swiss-red: #D52B1E; /* Official Swiss Red nuances */
             --dark-grey: #222;
             --light-grey: #f4f4f4;
+            --link-blue: #007bff; /* Standard link blue */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,7 +50,7 @@
         /* --- HEADER SECTION (SHRUNK) --- */
         header {
             grid-column: 1 / -1;
-            margin-bottom: 5mm; /* Reduced from 7mm */
+            margin-bottom: 5mm; 
             border-bottom: 2px solid var(--light-grey);
             padding-bottom: 3mm; 
             display: flex;
@@ -77,14 +78,14 @@
 
         .header-text h1 {
             font-family: 'Oswald', sans-serif;
-            font-size: 32pt; /* Reduced from 36pt */
+            font-size: 32pt; 
             text-transform: uppercase;
             color: var(--dark-grey);
             line-height: 1;
         }
 
         .header-text h2 {
-            font-size: 15pt; /* Reduced from 16pt */
+            font-size: 15pt; 
             color: var(--swiss-red);
             font-weight: 400;
             margin-top: 5px;
@@ -98,30 +99,30 @@
 
         .quote-box {
             background: var(--light-grey);
-            padding: 12px; /* Reduced from 15px */
+            padding: 12px; 
             border-left: 5px solid var(--swiss-red);
             font-style: italic;
-            font-size: 10.5pt; /* Reduced from 11pt */
-            margin-bottom: 8mm; /* Reduced from 12mm */
+            font-size: 10.5pt; 
+            margin-bottom: 8mm; 
             color: #555;
-            line-height: 1.4; /* Reduced from 1.5 */
+            line-height: 1.4; 
         }
 
         h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 15pt; /* Reduced from 16pt */
+            font-size: 15pt; 
             text-transform: uppercase;
             border-bottom: 2px solid var(--swiss-red);
-            margin-bottom: 6px; /* Reduced from 8px */
+            margin-bottom: 6px; 
             display: inline-block;
             padding-bottom: 2px;
         }
 
-        .section { margin-bottom: 8mm; } /* Reduced from 12mm */
+        .section { margin-bottom: 8mm; } 
         
         .section p {
-            font-size: 10.5pt; /* Reduced from 11pt */
-            line-height: 1.4; /* Reduced from 1.5 */
+            font-size: 10.5pt; 
+            line-height: 1.4; 
             color: #333;
         }
 
@@ -129,14 +130,14 @@
             list-style: none;
         }
         .profile-list li {
-            margin-bottom: 4px; /* Reduced from 6px */
-            font-size: 10pt; /* Reduced from 10.5pt */
-            line-height: 1.3; /* Reduced from 1.4 */
+            margin-bottom: 4px; 
+            font-size: 10pt; 
+            line-height: 1.3; 
         }
         .profile-list strong { color: var(--swiss-red); }
 
 
-        /* --- RIGHT COLUMN (NO CHANGE) --- */
+        /* --- RIGHT COLUMN --- */
         .right-col {
             text-align: center;
             background: #fafafa;
@@ -162,7 +163,21 @@
             justify-content: center;
             color: #ccc;
         }
-        .qr-img { width: 100%; height: 100%; }
+        
+        /* --- UPDATED: QR Image Link Style --- */
+        .qr-placeholder a {
+            display: block; /* Makes the link fill the container */
+            line-height: 0; /* Prevents extra space */
+        }
+        .qr-img { 
+            width: 100%; 
+            height: 100%; 
+            transition: opacity 0.2s ease;
+        }
+        .qr-img:hover {
+            opacity: 0.85; /* Slight fade to show interactivity */
+            cursor: pointer;
+        }
 
         .qr-label {
             font-weight: bold;
@@ -170,9 +185,15 @@
             font-size: 14pt;
             color: var(--swiss-red);
         }
+        
         .qr-desc {
             font-size: 9pt;
             color: #666;
+        }
+        
+        .qr-desc a {
+            color: var(--link-blue);
+            text-decoration: underline;
         }
         
         .contact-block {
@@ -184,9 +205,10 @@
             line-height: 1.7;
             margin-top: 5px;
         }
+        
         .contact-details a {
-            color: #555;
-            text-decoration: none;
+            color: var(--link-blue);
+            text-decoration: underline;
         }
         
         /* PRINT OPTIMIZATION */
@@ -257,24 +279,35 @@
             <!-- LINKEDIN QR --><div class="qr-block">
                 <div class="qr-label">LET'S CONNECT <br> on LinkedIn</div>
                 <div class="qr-placeholder">
-                    <!-- Replace the data= part with your actual LinkedIn URL --><img src="mc_linkedin.JPG" class="qr-img" alt="LinkedIn QR">
+                    <!-- --- Image is a link --- -->
+                    <a href="https://www.linkedin.com/in/msc-ai/" target="_blank">
+                        <img src="mc_linkedin.JPG" class="qr-img" alt="LinkedIn QR">
+                    </a>
                 </div>
-                <div class="qr-desc">Scan to view LinkedIn Profile</div>
+                <div class="qr-desc">
+                    Scan or click to <br> <a href="https://www.linkedin.com/in/msc-ai/" target="_blank">view LinkedIn Profile</a>
+                </div>
             </div>
 
             <!-- GITHUB/CV QR --><div class="qr-block">
                 <div class="qr-label">FULL CV</div>
                 <div class="qr-placeholder">
-                    <!-- Replace the data= part with your actual GitHub URL --><img src="cv_qr.png" class="qr-img" alt="GitHub QR">
+                    <!-- --- Image is a link --- -->
+                    <a href="https://gitfront.io/r/MScAI/9UAZEPPXzkNW/msc-pm-robotics/raw/CV/CV_Caballero_141125_.pdf" target="_blank">
+                        <img src="cv_qr.png" class="qr-img" alt="GitHub QR">
+                    </a>
                 </div>
-                <div class="qr-desc">Scan to view CV & Projects</div>
+                <div class="qr-desc">
+                    Scan or click to <br> <a href="https://gitfront.io/r/MScAI/9UAZEPPXzkNW/msc-pm-robotics/raw/CV/CV_Caballero_141125_.pdf" target="_blank">download CV & Projects</a>
+                </div>
             </div>
 
-            <!-- --- NEW: CONTACT BLOCK --- --><div class="contact-block">
+            <!-- --- CONTACT BLOCK --- --><div class="contact-block">
                 <h3 class="qr-label">or let´s talk <br>right now!</h3>
                 <p class="contact-details">
                     <span style="font-weight: bold; color: var(--swiss-red);">+41 76 514 38 30</span><br>
-                    <a href="mailto:msc_ai@icloud.com">msc_ai@icloud.com</a><br>
+                    <!-- --- UPDATED: Email link with Subject and Body --- -->
+                    <a href="mailto:msc_ai@icloud.com?subject=Re%3A%20Aspiring%20AI%20Product%20Manager%20%7C%20Robotics&body=Hello%20Marcelo%21%0D%0A%0D%0A">msc_ai@icloud.com</a><br>
                     Zurich, Switzerland
                 </p>
             </div>
